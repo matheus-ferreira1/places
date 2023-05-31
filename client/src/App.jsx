@@ -1,7 +1,18 @@
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+
+import { getPosts } from "./actions/posts";
+
 import Form from "./components/Form";
 import Posts from "./components/Posts";
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getPosts());
+  }, [dispatch]);
+
   return (
     <div className="container mx-auto">
       <header className="flex justify-center items-center my-3 ">
